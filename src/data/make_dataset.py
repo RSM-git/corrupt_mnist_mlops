@@ -40,6 +40,9 @@ def main(input_filepath, output_filepath):
     train["images"] = torchvision.transforms.Normalize(train["images"].mean(), train["images"].std())(train["images"])
     test["images"] = torchvision.transforms.Normalize(train["images"].mean(), train["images"].std())(test["images"])
 
+    train["images"] = train["images"].unsqueeze(1)
+    test["images"] = test["images"].unsqueeze(1)
+
     torch.save(train, f"{output_filepath}/train.pt")
     torch.save(test, f"{output_filepath}/test.pt")
 

@@ -32,6 +32,5 @@ class MyAwesomeModel(nn.Module):
                                         nn.Linear(256, 10))
 
     def forward(self, x):
-        x = x.unsqueeze(1)
         x = self.block(x)
         return self.classifier(x)

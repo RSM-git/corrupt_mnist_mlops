@@ -9,7 +9,6 @@ def load_data(train: bool = True):
         return torch.load(os.path.join(_PATH_DATA, "processed", "train.pt"))
     return torch.load(os.path.join(_PATH_DATA, "processed", "test.pt"))
 
-
 def test_make_dataset():
     assert load_data() is not None
 
